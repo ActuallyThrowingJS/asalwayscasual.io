@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">ActuallyThrowing<span>Js</span></div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content reveal">
+            <h1>Hi, I'm <span class="highlight">@ActuallyThrowingJs</span></h1>
+            <p class="typewriter">or you might know me as Casual as always</p>
+            <a href="#projects" class="btn">View My Work</a>
+        </div>
+    </section>
+
+    <section id="about" class="about reveal">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-info">
+                <div class="about-text">
+                    <p>I am just a plain human who is trying new stuff :p Also check out my actual site that I had worked on!</p>
+                    <p><a href="https://actuallythrowingjs.netlify.app/" target="_blank" class="special-link">actuallythrowingjs.netlify.app</a></p>
+                    <p>uh idk cya.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects reveal">
+        <div class="container">
+            <h2>My Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>BetterCode Moderation Bot</h3>
+                        <p>A discord moderation bot written in node.js.</p>
+                        <a href="https://github.com/ActuallyThrowingJS/bettercode-moderation.git" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>My Actual Website!</h3>
+                        <p>my website which i have worked on for a bit in the past</p>
+                        <a href="https://actuallythrowingjs.netlify.app/" class="project-link" target="_blank">View Project <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>uh unknown project</h3>
+                        <p>Its on my actual site not here so....</p>
+                        <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact reveal">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <div class="contact-orbs">
+                <a href="https://github.com/ActuallyThrowingJS" target="_blank" class="orb github">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+                <div class="orb email" id="email-orb">
+                    <i class="fas fa-envelope"></i>
+                    <span>Email</span>
+                </div>
+                <a href="https://discord.com/users/@idodrugstoo" target="_blank" class="orb discord">
+                    <i class="fab fa-discord"></i>
+                    <span>Discord</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Email Modal -->
+    <div id="email-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Send me a message</h3>
+            <form id="email-form">
+                <div class="form-group">
+                    <input type="text" id="sender-name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="sender-email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="sender-message" placeholder="Your Message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 @ActuallyThrowingJs. Fake copyright reserved lol.</p>
+        <div class="social-links">
+            <a href="https://github.com/ActuallyThrowingJS" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
