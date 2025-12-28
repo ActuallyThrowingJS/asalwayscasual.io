@@ -31,6 +31,8 @@ body {
     padding: 0 2rem;
 }
 
+/* media queries are from other sites cuz i cant be bothered tbh */
+
 /* Header & Nav */
 header {
     background: rgba(15, 12, 41, 0.8);
@@ -125,7 +127,35 @@ nav {
     font-size: 1.5rem;
     margin-bottom: 2.5rem;
     color: var(--text-dim);
-    animation: fadeInUp 1.2s ease;
+    overflow: hidden;
+    border-right: .15em solid var(--primary-color);
+    white-space: nowrap;
+    margin: 0 auto 2.5rem auto;
+    letter-spacing: .15em;
+    width: fit-content;
+    animation: 
+        fadeInUp 1.2s ease,
+        typing 3.5s steps(40, end) forwards,
+        blink-caret .75s step-end infinite;
+}
+
+@media (max-width: 768px) {
+    .hero-content p {
+        white-space: normal;
+        border-right: none;
+        width: auto;
+        animation: fadeInUp 1.2s ease;
+    }
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: var(--primary-color); }
 }
 
 .btn {
@@ -226,6 +256,31 @@ h2::after {
     border-bottom-style: solid;
 }
 
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+.skill-tag {
+    background: rgba(108, 92, 231, 0.1);
+    color: var(--secondary-color);
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: 1px solid rgba(108, 92, 231, 0.3);
+    transition: var(--transition);
+}
+
+.skill-tag:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: scale(1.1);
+}
+
 /* Projects */
 .project-grid {
     display: grid;
@@ -257,6 +312,15 @@ h2::after {
     color: var(--primary-color);
     margin-bottom: 1.2rem;
     transition: var(--transition);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-icon svg {
+    width: 3.5rem;
+    height: 3.5rem;
+    stroke-width: 2.5;
 }
 
 .project-card:hover .project-icon {
@@ -292,6 +356,27 @@ h2::after {
     gap: 1rem;
 }
 
+.project-card.coming-soon {
+    opacity: 0.8;
+    cursor: not-allowed;
+}
+
+.project-card.coming-soon:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: none;
+}
+
+.project-link.disabled {
+    color: var(--text-dim);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.project-link.disabled:hover {
+    gap: 0.5rem;
+}
+
 /* Contact */
 .contact {
     background: var(--bg-dark);
@@ -320,11 +405,54 @@ h2::after {
     transition: var(--transition);
     backdrop-filter: blur(5px);
     position: relative;
-    overflow: hidden;
+    overflow: visible;
+}
+
+.orb-tooltip {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: var(--primary-color);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
+}
+
+.orb-tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid var(--primary-color);
+}
+
+.orb:hover .orb-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
 }
 
 .orb i {
     font-size: 3rem;
+    margin-bottom: 0.5rem;
+    transition: var(--transition);
+}
+
+.orb svg {
+    width: 3.5rem;
+    height: 3.5rem;
+    stroke-width: 2.5;
     margin-bottom: 0.5rem;
     transition: var(--transition);
 }
@@ -457,6 +585,36 @@ footer {
 .social-links a:hover {
     color: var(--primary-color);
     transform: translateY(-5px);
+}
+
+/* Back to Top Button */
+#back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: var(--transition);
+    z-index: 999;
+}
+
+#back-to-top:hover {
+    background: var(--accent-color);
+    transform: translateY(-5px);
+}
+
+#back-to-top svg {
+    width: 24px;
+    height: 24px;
 }
 
 /* Animations */
