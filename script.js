@@ -1,21 +1,23 @@
-// Scroll Reveal Animation
+// Scroll animation type shi
 const revealElements = document.querySelectorAll('.reveal');
 
-const revealOnScroll = () => {
-    revealElements.forEach(element => {
-        const elementTop = element.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-        
-        if (elementTop < windowHeight - 100) {
-            element.classList.add('active');
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            revealObserver.unobserve(entry.target);
         }
     });
-};
+}, {
+    threshold: 0.15, 
+    rootMargin: '0px 0px -50px 0px' 
+});
 
-window.addEventListener('scroll', revealOnScroll);
-window.addEventListener('load', revealOnScroll); // Initial check
+revealElements.forEach(element => {
+    revealObserver.observe(element);
+});
 
-// Smooth scrolling for navigation links
+// smooth scroll idk
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -29,7 +31,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Navbar background change on scroll
+// navbar effect 
 window.addEventListener('scroll', () => {
     const header = document.querySelector('header');
     if (window.scrollY > 50) {
@@ -41,14 +43,13 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Mobile Navigation
+// mobile/small device ui change
 const burger = document.querySelector('.burger');
 const nav = document.querySelector('.nav-links');
 const navLinks = document.querySelectorAll('.nav-links li');
 
 if (burger) {
     burger.addEventListener('click', () => {
-        // Toggle Nav
         nav.classList.toggle('nav-active');
 
         // Animate Links
@@ -65,7 +66,7 @@ if (burger) {
     });
 }
 
-// Email Modal Logic
+// Email part yoink
 const emailOrb = document.getElementById('email-orb');
 const emailModal = document.getElementById('email-modal');
 const closeModal = document.querySelector('.close-modal');
@@ -74,7 +75,7 @@ const emailForm = document.getElementById('email-form');
 if (emailOrb && emailModal) {
     emailOrb.addEventListener('click', () => {
         emailModal.style.display = 'flex';
-        document.body.style.overflow = 'hidden'; // Prevent scrolling
+        document.body.style.overflow = 'hidden'; 
     });
 
     closeModal.addEventListener('click', () => {
@@ -98,10 +99,47 @@ if (emailForm) {
         const message = document.getElementById('sender-message').value;
 
         if (name && email && message) {
-            alert(`Thanks ${name}! Your message has been sent.`);
-            emailForm.reset();
-            emailModal.style.display = 'none';
-            document.body.style.overflow = 'auto';
+            const submitBtn = emailForm.querySelector('.btn');
+            const originalText = submitBtn.innerText;
+            
+            submitBtn.innerText = 'Sending...';
+            submitBtn.disabled = true;
+
+            setTimeout(() => {
+                alert(`Thanks ${name}! Your message has been sent somewhere atleast.`);
+                emailForm.reset();
+                submitBtn.innerText = originalText;
+                submitBtn.disabled = false;
+                emailModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }, 1500);
         }
     });
 }
+
+// Add sum effect
+window.addEventListener('scroll', () => {
+    const hero = document.querySelector('.hero');
+    const scrollValue = window.scrollY;
+    if (hero) {
+        hero.style.backgroundPositionY = `${scrollValue * 0.5}px`;
+    }
+});
+
+// Back to Top Button at right bottom
+const backToTopBtn = document.getElementById('back-to-top');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 500) {
+        backToTopBtn.style.display = 'flex';
+    } else {
+        backToTopBtn.style.display = 'none';
+    }
+});
+
+backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
