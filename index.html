@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>AsAlwaysCasual's Basement</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -29,15 +29,15 @@
     </header>
 
     <section id="home" class="hero">
-        <div class="hero-content reveal">
+        <div class="hero-content">
             <h1>Hi, I'm <span class="highlight">@ActuallyThrowingJs</span></h1>
             <p class="typewriter">or you might know me as Casual as always</p>
             <a href="#projects" class="btn">View My Work</a>
         </div>
     </section>
 
-    <section id="about" class="about reveal">
-        <div class="container">
+    <section id="about" class="about">
+        <div class="container reveal">
             <h2>About Me</h2>
             <div class="about-info">
                 <div class="about-text">
@@ -45,17 +45,24 @@
                     <p><a href="https://actuallythrowingjs.netlify.app/" target="_blank" class="special-link">actuallythrowingjs.netlify.app</a></p>
                     <p>uh idk cya.</p>
                 </div>
+                <div class="skills-container">
+                    <div class="skill-tag">Node.js</div>
+                    <div class="skill-tag">JavaScript</div>
+                    <div class="skill-tag">Discord.js</div>
+                    <div class="skill-tag">HTML/CSS</div>
+                    <div class="skill-tag">Basement Dweller</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="projects" class="projects reveal">
-        <div class="container">
+    <section id="projects" class="projects">
+        <div class="container reveal">
             <h2>My Projects</h2>
             <div class="project-grid">
                 <div class="project-card">
                     <div class="project-icon">
-                        <i class="fas fa-robot"></i>
+                        <i data-lucide="cannabis"></i>
                     </div>
                     <div class="project-info">
                         <h3>BetterCode Moderation Bot</h3>
@@ -65,30 +72,30 @@
                 </div>
                 <div class="project-card">
                     <div class="project-icon">
-                        <i class="fas fa-globe"></i>
+                        <i data-lucide="globe"></i>
                     </div>
                     <div class="project-info">
                         <h3>My Actual Website!</h3>
                         <p>my website which i have worked on for a bit in the past</p>
-                        <a href="https://actuallythrowingjs.netlify.app/" class="project-link" target="_blank">View Project <i class="fas fa-arrow-right"></i></a>
+                        <a href="https://actuallythrowingjs.netlify.app/" class="project-link" target="_blank">View Project <i data-lucide="external-link"></i></a>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card coming-soon">
                     <div class="project-icon">
-                        <i class="fas fa-code"></i>
+                        <i data-lucide="lock"></i>
                     </div>
                     <div class="project-info">
-                        <h3>uh unknown project</h3>
-                        <p>Its on my actual site not here so....</p>
-                        <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                        <h3>Not So Public Project</h3>
+                        <p>This project is still in my basement</p>
+                        <span class="project-link disabled">Soon™ <i data-lucide="clock"></i></span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="contact reveal">
-        <div class="container">
+    <section id="contact" class="contact">
+        <div class="container reveal">
             <h2>Contact Me</h2>
             <div class="contact-orbs">
                 <a href="https://github.com/ActuallyThrowingJS" target="_blank" class="orb github">
@@ -96,7 +103,8 @@
                     <span>GitHub</span>
                 </a>
                 <div class="orb email" id="email-orb">
-                    <i class="fas fa-envelope"></i>
+                    <div class="orb-tooltip">Click Me!</div>
+                    <i data-lucide="mail"></i>
                     <span>Email</span>
                 </div>
                 <a href="https://discord.com/users/@idodrugstoo" target="_blank" class="orb discord">
@@ -107,7 +115,7 @@
         </div>
     </section>
 
-    <!-- Email Modal -->
+    <!-- Email part which i pasted from my other site welp -->
     <div id="email-modal" class="modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
@@ -136,6 +144,14 @@
         </div>
     </footer>
 
+    <button id="back-to-top" title="Go to top">
+        <i data-lucide="arrow-up"></i>
+    </button>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script src="script.js"></script>
+    <script>
+      lucide.createIcons();
+    </script>
 </body>
 </html>
